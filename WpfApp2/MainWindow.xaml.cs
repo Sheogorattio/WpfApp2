@@ -18,11 +18,17 @@ namespace WpfApp2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IView
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        public string EnteredData { get { return } set { EnteredData = value; } }
+
+        public event EventHandler<EventArgs> PressDigit;
+        public event EventHandler<EventArgs> PressOK;
+        public event EventHandler<EventArgs> PressClean;
     }
 }

@@ -13,5 +13,14 @@ namespace WpfApp2
     /// </summary>
     public partial class App : Application
     {
+        [STAThread]
+        static public void Main()
+        {
+            App app = new App();
+            MainWindow mainWindow = new MainWindow();
+            Model model = new Model();
+            //app.Run(mainWindow);
+        }
+
     }
 }
