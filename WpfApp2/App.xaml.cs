@@ -16,10 +16,11 @@ namespace WpfApp2
         [STAThread]
         static public void Main()
         {
-            App app = new App();
+            App app = new App();            
             MainWindow mainWindow = new MainWindow();
-            Model model = new Model();
-            //app.Run(mainWindow);
+            IModel model = new Model();
+            Presenter presenter = new Presenter(model, mainWindow);
+            app.Run(mainWindow);
         }
 
     }

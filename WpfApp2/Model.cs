@@ -10,16 +10,31 @@ namespace WpfApp2
 {
     class Model : IModel
     {
-        string password;
+        string password = " ";
+        private StringBuilder enteredData;
 
         public Model()
         {
-            password =  DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00");
-            MessageBox.Show(password);
+           RefreshPassword();
+            enteredData = new StringBuilder();
         }
-        public bool IsPasswordTrue(string pswd)
+
+        
+        public string EnteredData { set { enteredData.Append(value.ToString()); } }
+
+        public bool IsPasswordTrue()
         {
-            return password == pswd;
+            return password == enteredData.ToString();
+        }
+
+        public void RefreshPassword()
+        {
+            password = DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00");
+        }
+
+        public void CleanEnteredData()
+        {
+         enteredData.Clear();
         }
     }
 }

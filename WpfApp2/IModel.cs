@@ -8,6 +8,10 @@ namespace WpfApp2
 {
     interface IModel
     {
-        bool IsPasswordTrue(string pswd);
+        bool IsPasswordTrue();
+        void RefreshPassword();
+
+        string EnteredData { set; }
+        void CleanEnteredData();
     }
 }

@@ -25,10 +25,25 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        public string EnteredData { get { return } set { EnteredData = value; } }
+        public string EnteredData { get { return TextBox.Text; } set { TextBox.Text = value.ToString(); } }
 
         public event EventHandler<EventArgs> PressDigit;
         public event EventHandler<EventArgs> PressOK;
         public event EventHandler<EventArgs> PressClean;
+
+        private void DigitButton_Click(object sender, RoutedEventArgs e)
+        {
+            PressDigit?.Invoke(sender, e);
+        }
+
+        private void Clean_button_Click(object sender, RoutedEventArgs e)
+        {
+            PressClean?.Invoke(sender, e);
+        }
+
+        private void OK_button_Click(object sender, RoutedEventArgs e)
+        {
+            PressOK?.Invoke(sender, e);
+        }
     }
 }
